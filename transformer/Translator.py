@@ -162,9 +162,7 @@ class Translator(object):
 
             #-- Prepare beams
             inst_dec_beams = [Beam(n_bm, device=self.device) for _ in range(n_inst)]
-            # print("inst_dec_beams", inst_dec_beams)
-            # print("n_inst", n_inst)
-            # print("n_beam", n_bm)
+
 
 
             #-- Bookkeeping for active or not
@@ -197,7 +195,5 @@ class Translator(object):
 
         batch_hyp, batch_scores = collect_hypothesis_and_scores(inst_dec_beams,
                                                                 self.opt.n_best)
-        # print("batch_hyp: ", batch_hyp)
-        # print("batch_scores: ", batch_scores)
 
         return batch_hyp, batch_scores, word_probs
