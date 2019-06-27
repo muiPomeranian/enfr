@@ -128,7 +128,7 @@ bleu score with 1gram
 
 ### Achievement
 <p align="center">
-  <img src="/assets/tensorboard_img.png" width="350" height="350">
+  <img src="/assets/tensorboard_img.png" width="400" height="400">
 </p>
 transformer base 38.1 / although data is different
 0.4133846407231509 <- bleu score of weight 1 0 0 0 
