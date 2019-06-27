@@ -1,0 +1,10 @@
+<s> êtes - vous folle ? 
+ </s>
+<s> quel est le <unk> ? 
+ </s>
+<s> je suis amical avec toi . 
+ </s>
+<s> il est très prudent . 
+ </s>
+<s> un peu froid me <unk> . 
+ </s>
