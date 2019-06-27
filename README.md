@@ -1,4 +1,4 @@
-# Machine Translation
+# Machine Translation EN-FR
 
 <p align="center">
   <img src="/assets/french-translation_img.png" width="497" height="370">
@@ -23,8 +23,6 @@ Following main goal will be achieved.
 
 ### Dataset
 The raw dataset used in this repo is data `data/fra.txt`
-
-Additional 2Millions of raw dataset is available in this repo `data/europarl-v7.fr-en.en`, `data/europarl-v7.fr-en.fr`
 
 
 ### Reproduce
