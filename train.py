@@ -25,8 +25,7 @@ log_paths = {'train': utils.get_local_path('logs/train'),
              }
 
 for _, path in log_paths.items():
-    if not os.path.exists(path):
-        os.makedirs(path)
+    parser = argparse.ArgumentParser()
 
 train_logger = Logger(log_paths['train'])
 valid_logger = Logger(log_paths['valid'])

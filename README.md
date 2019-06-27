@@ -17,46 +17,36 @@ This project is to use __[Transformer](https://arxiv.org/abs/1706.03762)__ for t
 
 ### Goal Of the Project
 Following main goal will be achieved.
-1. Build a meaningful translator of english to french
-2. Can be applied to any other type of language machine translation easily if data is provided
+1. Build a meaningful translator of english to french.
+2. Can be applied to any other type of language machine translation easily if data is provided.
 
 
 ### Dataset
-The raw dataset used in this repo is data `data/fra.txt`
+The raw dataset used in this repo is data `data/fra.txt` which contains `100K` data.
 
 
-### Reproduce
+### Environment
     conda env create -f env.yml
+    conda activate transformer
 
 
-### Train Parameter script
--data', required=True)
+### Data Split
+    python prep/split_100K.py -data data/fra.txt
+    # this splits data with 8:1:1 ratio
+splited data will be stored at `en_fr100K`
 
--epoch', type=int, default= ???????
--batch_size', type=int, default=64
 
--d_word_vec', type=int, default=512 # embedding dimension
--d_model', type=int, default=512
--d_inner_hid', type=int, default=2048
--d_k', type=int, default=64
--d_v', type=int, default=64
+### Data Preparation
+    python preprocess.py -train_src en_fr100K/train_sm.en -train_tgt en_fr100K/train_sm.fr -valid_src en_fr100K/dev_sm.en -valid_tgt en_fr100K/dev_sm.fr -save_data enfr100K.pd100.pt
+    
+We use spaCy to make torch input for the model training and test. Make dictionary type of data from raw data. Again, spaCy is used to tokenize. Please refer to the Tokenizaion section.
+After split the data, we create the vocab(word dictionary). make word2idx, idx2word dictionary to map after training.
 
--n_head', type=int, default=8 # num of multi-head
--n_layers', type=int, default=6 # num of encode-decode transformer layers
--n_warmup_steps', type=int, default=4000)
 
--dropout', type=float, default=0.1)
--embs_share_weight', action='store_true’) # WHAT IS THIS?
--proj_share_weight', action='store_true')
+### Train
+    python train.py -data enfr100K.pd100.pt -log [exp_model] -save_model [exp_name] -epoch 90
 
--log', default=None)
--save_model', default=None)
--save_mode', type=str, choices=['all', 'best'], default='best')
-
--no_cuda', action='store_true')
--label_smoothing', action='store_true')
-
--resume_ckpt', type=str, default='trained.ckpt') # to resume train
+add `-no_cuda` in case GPU is not available
 
 
 ### Split
@@ -88,9 +78,6 @@ Fortunately, min and mode are similar for both en/fr. Also, we don't want to tri
 If user decide to work with bigger data, this threshold can be reduced.  
 
 
-### Preprocess
-We use spaCy to make torch input for the model training and test. Make dictionary type of data from raw data. Again, spaCy is used to tokenize. Please refer to the Tokenizaion section.
-After split the data, we create the vocab(word dictionary). make word2idx, idx2word dictionary to map after training.
 
 
 ### train
@@ -126,11 +113,16 @@ bleu score with 1gram
 
 
 
-### Achievement
+### Training Result
+Run the Tensor Board
+```bash
+$ tensorboard --logdir='./logs' --port=6006
+```
+ 
 <p align="center">
   <img src="/assets/tensorboard_img.png" width="550" height="500">
 </p>
-transformer base 38.1 / although data is different
+
 0.4133846407231509 <- bleu score of weight 1 0 0 0 
 
 
