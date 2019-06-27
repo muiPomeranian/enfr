@@ -1,5 +1,9 @@
 # Machine Translation
 
+<p align="center">
+  <img src="/assets/french-translation_img.png" width="497" height="370">
+</p>
+
 ![ubuntu 16.04](https://img.shields.io/badge/ubuntu-16.04-blue.svg)
 [![Python 3.7](https://img.shields.io/badge/python-3.6.8-blue.svg)](https://www.python.org/downloads/release/python-370/)
 ![PyTorch](https://img.shields.io/badge/pytorch-0.4.1-blue.svg)
