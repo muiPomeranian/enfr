@@ -127,7 +127,7 @@ bleu score with 1gram
 
 
 ### Achievement
-<p align="left">
+<p align="center">
   <img src="/assets/tensorboard_img.png" width="200" height="200">
 </p>
 transformer base 38.1 / although data is different
