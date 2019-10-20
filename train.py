@@ -27,8 +27,8 @@ log_paths = {'train': utils.get_local_path('logs/train'),
 for _, path in log_paths.items():
     parser = argparse.ArgumentParser()
 
-train_logger = Logger(log_paths['train'])
-valid_logger = Logger(log_paths['valid'])
+train_logger = Logger(log_paths['train']) # train dataset
+valid_logger = Logger(log_paths['valid']) # valid dataset
 weight_logger = Logger(log_paths['weight'])
 
 
